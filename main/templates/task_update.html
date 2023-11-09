@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Update Task</h2>
+
+{% if user.is_authenticated %}
+	{% if request.user == task.user %}
+		<form method="POST">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" value="Update Task" class="btn btn-outline-primary">
+
+			</form>
+
+<!--	<form method="POST">-->
+<!--    {% csrf_token %}-->
+<!--  <div class="mb-3">-->
+<!--    <label class="form-label">Title</label>-->
+<!--    <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">-->
+<!--  </div>-->
+<!--  <div class="mb-3">-->
+<!--      <label class="form-label">Description</label>-->
+<!--      <textarea name="overview" class="form-control" rows="4" cols="50"></textarea>-->
+<!--  </div>-->
+<!--<div class="form-check">-->
+<!--  <input class="form-check-input" name="completed" type="checkbox" value="" id="flexCheckDefault">-->
+<!--  <label class="form-check-label" for="flexCheckDefault">-->
+<!--    Competed-->
+<!--  </label>-->
+<!--</div>-->
+<!--  <button type="submit" class="btn btn-outline-primary">Add Task</button>-->
+<!--</form>-->
+
+	{% endif %}
+{% endif %}
+{% endblock %}

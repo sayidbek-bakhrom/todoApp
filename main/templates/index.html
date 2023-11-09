@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br><br>
+	<h2>Your To-Do</h2>
+<br><br>
+
+	{% if user.is_authenticated %}
+			{% for task in tasks %}
+				{% if request.user == task.user %}
+					<ul>
+						<li>
+							{% if task.completed %}
+					<p><s>{{task.title| safe}}</s> <a href="{% url 'task_detail' task.id %}">view</a></p>
+					{% else %}
+					<p>{{task.title| safe}} <a href="{% url 'task_detail' task.id %}">view</a></p>
+					{% endif %}
+						</li>
+					</ul>
+				{% endif %}
+
+			{% endfor %}
+
+	{%else %}
+	<p><a href="{% url 'login' %}">Login</a> to view</p>
+	{% endif %}
+{% endblock %}

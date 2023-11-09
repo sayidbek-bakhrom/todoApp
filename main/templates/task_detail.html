@@ -1,0 +1,39 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<!--	{{ request.user.id }}-->
+<!--	{{ task.user.id }}-->
+	{% if user.is_authenticated %}
+        {% if request.user == task.user %}
+	<h2>Task</h2>
+<br><br>
+<div class="card" style="background-color:#F3FDE8 ;">
+  <div class="card-header">
+    {{ task.date_created|date:'d F, Y' }}
+      {% if task.completed %}
+      ✅
+      {% endif %}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ task.title| safe}}!</h5>
+    <p class="card-text">{{task.overview| safe}}</p>
+    <div class="text-center">
+        <a href="{% url 'task_update' task.pk %}" class="btn btn-primary">Update</a>
+	<a href="{% url 'task_delete' task.pk %}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+</div>
+
+
+
+<br>
+
+{% else %}
+<br><br>
+<h2>You can't view others todo list! </h2>
+	{% endif %}
+
+
+{% endif %}
+{% endblock %}
