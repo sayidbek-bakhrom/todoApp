@@ -10,13 +10,16 @@
 <br><br>
 <div class="card" style="background-color:#F3FDE8 ;">
   <div class="card-header">
-    {{ task.date_created|date:'d F, Y' }}
+    {{ task.date_created|date:'d F, Y' }},
+      <i>status: </i>
       {% if task.completed %}
-      ✅
+        ✅
+      {% else %}
+        ❌
       {% endif %}
   </div>
   <div class="card-body">
-    <h5 class="card-title">{{ task.title| safe}}!</h5>
+    <h5 class="card-title">{{ task.title| safe}}</h5>
     <p class="card-text">{{task.overview| safe}}</p>
     <div class="text-center">
         <a href="{% url 'task_update' task.pk %}" class="btn btn-primary">Update</a>

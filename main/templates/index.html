@@ -2,7 +2,11 @@
 
 {% block content %}
 <br><br>
-	<h2>Your To-Do</h2>
+	{% if user.is_authenticated %}
+	<h2>{{user.username|title}}'s Todo</h2>
+	{% else %}
+	<h2>Todo</h2>
+	{% endif %}
 <br><br>
 
 	{% if user.is_authenticated %}

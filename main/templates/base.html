@@ -31,10 +31,19 @@
       <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'task_create' %}">Add Task</a>
         </li>
-  <li class="nav-item">
+
+             <li class="nav-item nav justify-content-end">
           <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
         </li>
+
     {% endif %}
+
+        <li class="nav-item" >ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+            <sup>
+                <a href="https://github.com/sayidbek-bakhrom/todoApp"><img height="28" src="https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png" alt=""></a>
+            </sup>
+
+        </li>
 
       </ul>
     </div>
@@ -48,6 +57,7 @@
       {% block content %}
 
       {% endblock %}
+
             </div>
         </div>
     </div>
